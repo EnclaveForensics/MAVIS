@@ -1,3 +1,4 @@
 .antlr
 .venv
+.vscode
 __pycache__

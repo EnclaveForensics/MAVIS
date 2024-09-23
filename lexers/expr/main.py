@@ -5,20 +5,18 @@ from ExprParser import ExprParser
 from ExprListener import ExprListener
 
 class ExprPrintListener(ExprListener):
-    # def enterProg(self, ctx):
-    #     print(ctx.expr())
-
     def enterExpr(self, ctx):
-        token = ctx.INT()
-        if token is not None:
-            print(ctx.INT())
+        print(ctx)
 
-def main(argv):
-    input_stream = FileStream(argv[1])
+def get_parse_tree(input_stream):
     lexer = ExprLexer(input_stream)
     stream = CommonTokenStream(lexer)
     parser = ExprParser(stream)
-    tree = parser.prog()
+    return parser.prog()
+
+def main(argv):
+    input_stream = FileStream(argv[1])
+    tree = get_parse_tree(input_stream)
     printer = ExprPrintListener()
     walker = ParseTreeWalker()
     walker.walk(printer, tree)

@@ -8,12 +8,15 @@ class CPrintListener(CListener):
     def enterExpression(self, ctx: CParser.ExpressionContext):
         print(ctx)
 
-def main(argv):
-    input_stream = FileStream(argv[1])
+def get_parse_tree(input_stream):
     lexer = CLexer(input_stream)
     stream = CommonTokenStream(lexer)
     parser = CParser(stream)
-    tree = parser.translationUnit()
+    return parser.translationUnit()
+
+def main(argv):
+    input_stream = FileStream(argv[1])
+    tree = get_parse_tree(input_stream)
     printer = CPrintListener()
     walker = ParseTreeWalker()
     walker.walk(printer, tree)
