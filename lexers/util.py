@@ -23,14 +23,22 @@ def get_grammar(grammar_path: Path):
 class GenericPrintListener(ParseTreeListener):
     depth = 0
 
-    # def visitTerminal(self, node:TerminalNode):
-    #     # node.symbol is a token
-    #     print(f"{node.symbol.type} {node.symbol.text}")
+    def __init__(self):
+        sys.setrecursionlimit(10000)
+
+    def visitTerminal(self, node:TerminalNode):
+        #node.symbol is a token
+        #print(f"{node.symbol.type} {node.symbol.text}")
+        print(node.symbol.type, end=',')
 
     def enterEveryRule(self, ctx):
+        #print(ctx.getRuleContext())
         rule_name = ctx.parser.ruleNames[ctx.getRuleIndex()]
-        print((self.depth * " ") + rule_name)
+        #print((self.depth * " ") + rule_name)
+        #print(rule_name)
         self.depth += 1
 
     def exitEveryRule(self, ctx):
         self.depth -= 1
+        if self.depth <= 0:
+            print()

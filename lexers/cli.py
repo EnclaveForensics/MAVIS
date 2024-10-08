@@ -30,20 +30,24 @@ def tokenize(
     ] = "/dev/stdin",
 ):
     _, Lexer = util.get_grammar(grammar_path)
-    stream = FileStream(input)
+    stream = FileStream(input, encoding='utf-8')
     lexer = Lexer(stream)
     token_type_map = {
         symbolic_id + len(lexer.literalNames) - 1: symbolic_name
         for symbolic_id, symbolic_name in enumerate(lexer.symbolicNames)
     }
 
+    print(token_type_map)
     while True:
         token = lexer.nextToken()
+        print(token.type)
         type_ = token_type_map.get(token.type, "literal")
         text_ = token.text.strip()
     
         if(text_):
             print(f"{type_}: {text_}")
+        else:
+            print(type_)
 
         if token.type == token.EOF:
             break
@@ -70,7 +74,7 @@ def parse(
         ),
     ] = "/dev/stdin",
 ):
-    stream = FileStream(input)
+    stream = FileStream(input, encoding='utf-8')
     mod, _ = util.get_grammar(grammar_path)
     tree = mod.get_parse_tree(stream)
     printer = util.GenericPrintListener()
