@@ -17,8 +17,10 @@ const {title} = Astro.props.frontmatter
 		<title>MAVIS AI</title>
 	</head>
 	<body>
+		<div id="bigmavis"><a href='/' style="text-decoration:none">MAVIS</a></div>
 		<maintitle>{title}</maintitle>
 		<main>
+
 		<img id="background" src={background.src} alt="" fetchpriority="high" />
 			<slot />
 		</main>
@@ -34,6 +36,18 @@ const {title} = Astro.props.frontmatter
 	body {
 	min-height: 100vh;
 	margin: 0;
+	}
+
+	div#bigmavis {
+		justify-content: center;
+		padding: 25px;
+		text-align: center;
+		margin: 25px;
+		margin-bottom: 0px;
+		padding-bottom: 0px;
+		font-size: 72px;
+		
+		width: 80%;
 	}
 
 	#background {

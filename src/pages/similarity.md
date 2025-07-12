@@ -31,4 +31,4 @@ It focuses on **orientation**, not magnitude, making it useful for:
 * **Recommendation systems**
 * **Clustering** in high-dimensional spaces
 
-Because it's unaffected by vector length, cosine similarity is ideal when input vectors vary in scale but direction encodes meaning (e.g., in document-term matrices or embeddings).
+Because it's unaffected by vector length, cosine similarity is ideal when input vectors vary in scale but direction encodes meaning. This should perform well since MAVIS seeks to identify code *intent* rather than attempting to scan for known vulnerable patterns or signatures, making MAVIS more powerful than many other code analysis solutions; it should also prove more difficult to fool, whether intentionally or unintentionally.

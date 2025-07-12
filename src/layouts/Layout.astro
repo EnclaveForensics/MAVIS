@@ -15,6 +15,7 @@ import background from '../assets/background.svg';
 	<body>
 		<main>
 		<img id="background" src={background.src} alt="" fetchpriority="high" />
+		<div id="bigmavis">MAVIS</div>
 			<div id="hero">
 				<slot />
 			</div>
@@ -68,6 +69,18 @@ import background from '../assets/background.svg';
 		padding: 50px;
 		text-align: center;
 		margin: 50px;
+		
+		width: 80%;
+	}
+
+	div#bigmavis {
+		justify-content: center;
+		padding: 25px;
+		text-align: center;
+		margin: 25px;
+		margin-bottom: 0px;
+		padding-bottom: 0px;
+		font-size: 72px;
 		
 		width: 80%;
 	}
