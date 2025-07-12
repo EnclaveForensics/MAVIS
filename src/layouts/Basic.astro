@@ -1,22 +1,41 @@
 ---
-import astroLogo from '../assets/astro.svg';
 import background from '../assets/background.svg';
+const {title} = Astro.props.frontmatter
 ---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+			integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"
+			crossorigin="anonymous"
+		/>
+		<title>MAVIS AI</title>
+	</head>
+	<body>
+		<maintitle>{title}</maintitle>
+		<main>
+		<img id="background" src={background.src} alt="" fetchpriority="high" />
+			<slot />
+		</main>
+		<footer>
+			Created by <a href='https://enclaveforensics.com'>Enclave Forensics, Inc.</a> • Sponsored by <a href="https://www.sans.org">The SANS Institute</a>
+		</footer>
+	</body>
+</html>
 
-<div id="container">
-	<img id="background" src={background.src} alt="" fetchpriority="high" />
-	<main>
-		<section id="hero">
-			<h1>
-				Scalable Concierge Security Services
-			</h1>
-			Founded in 1999, Enclave specializes in advanced threat hunting, scalable security monitoring, CISO services, and AI development.
-			
-			<h5><a href="mailto:info@enclaveforensics.com" subject="Web reference">Contact us</a> for more information.</h5>
-		</section>
-	</main>
 
 <style>
+
+	body {
+	min-height: 100vh;
+	margin: 0;
+	}
+
 	#background {
 		position: fixed;
 		top: 0;
@@ -27,15 +46,37 @@ import background from '../assets/background.svg';
 		filter: blur(100px);
 	}
 
+	footer {
+		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+		font-size: 10px;
+		min-height: 50px;
+		text-align: center;
+		
+	}
+
 	#container {
 		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
+	}
+
+	maintitle {
+		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+		font-size: xx-large;
+		margin: 50px;
+		margin-bottom: 0px;
+		padding: 50px;
+		width: 100%;
+		
+		text-align: center;
 	}
 
 	main {
-		height: 100%;
-		display: flex;
 		justify-content: center;
+		margin: 50px;
+		margin-top: 0px;
+		padding: 50px;
+		padding-top:10px;
+		width: 80%
+		flex: 1;
 	}
 
 	#hero {
@@ -43,9 +84,17 @@ import background from '../assets/background.svg';
 		align-items: start;
 		flex-direction: column;
 		justify-content: center;
-		padding: 16px;
+		padding: 50px;
+		text-align: center;
+		margin: 50px;
+		
+		width: 80%;
 	}
 
+	h1 #mavis{
+		margin: auto 0;
+		text-align: center;
+	}
 	h1 {
 		font-size: 22px;
 		margin-top: 0.25em;
@@ -97,7 +146,6 @@ import background from '../assets/background.svg';
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
-		margin: 0;
 	}
 
 	h2 {
