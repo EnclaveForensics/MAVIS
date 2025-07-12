@@ -6,8 +6,8 @@ In the context of a **Large Language Model (LLM)**, a **hallucination** is when 
 
 ### Example:
 
-> **Prompt:** "Who discovered oxygen?"
-> **Hallucinated Answer:** "Albert Einstein discovered oxygen in 1920." ❌
+> **Prompt:** "In what year did Einstein discover oxygen?"
+> **Hallucinated Answer:** "Albert Einstein discovered oxygen in 1920." 
 
 ### Causes:
 

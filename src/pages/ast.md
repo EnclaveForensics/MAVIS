@@ -14,9 +14,11 @@ The AST serves as an intermediate representation (IR) in the compilation pipelin
 * **Optimization**: Simplifying or transforming the code to improve performance or efficiency.
 * **Code generation**: Translating the AST into target code, such as machine code or bytecode.
 
+An AST is often confused with a *Parse Tree*.
+
 ### AST vs. Parse Tree
 
-The **parse tree** is a direct representation of the grammar rules applied during parsing, and contains all syntactic details, including punctuation and grouping symbols. In contrast, the AST omits these details and retains only the essential structure necessary for further analysis or execution. For example, while a parse tree for `(x + y)` would include nodes for the parentheses, the AST would only include a binary operation node with `x` and `y` as children.
+The **parse tree** is a direct representation of the grammar rules applied during parsing, and contains all syntactic details, including punctuation, grouping symbols, comments, and more. In contrast, the AST omits these details and retains only the essential structure necessary for further analysis or execution. For example, while a parse tree for `(x + y)` would include nodes for the parentheses, the AST would only include a binary operation node with `x` and `y` as children.
 
 ### Construction of AST
 
